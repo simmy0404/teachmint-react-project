@@ -71,7 +71,7 @@ const UserDetails = (props) => {
         <div className="detail-country">
             <select className="detail-dropdown" onChange={handleCountryChange}>
               <option>Select Country</option>
-              {countryData.map((country, idx) => {
+              {countryData?.map((country, idx) => {
                 return (
                   <option className="dropDownData" key={idx}>
                     {country}
