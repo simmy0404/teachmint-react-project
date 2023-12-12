@@ -96,7 +96,7 @@ const UserDetails = (props) => {
                 );
               })}
             </select>
-          <div className="detail-timecounter">Current Time: {formatTime(currentTime)}</div>
+          <div className="detail-timecounter">{formatTime(currentTime)}</div>
           <button className="detail-counter-button" onClick={handlePausePlay}>
             {clockPaused ? "Play" : "Pause"}
           </button>

@@ -41,3 +41,10 @@
     padding-right: 10px;
     color: rgb(60, 59, 59);
 }
+
+@media (max-width: 767px){
+    .userlists-user{
+        font-size: 14px;
+    }
+
+}

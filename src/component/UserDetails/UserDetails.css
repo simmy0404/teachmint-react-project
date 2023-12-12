@@ -24,6 +24,16 @@
 .detail-dropdown{
     cursor: pointer;
 }
+
+.detail-timecounter{
+    background-color: black;
+    height: 40%;
+    padding: 10px;
+    color: white;
+    border-radius: 2px;
+    display: flex;
+    align-items: center;
+}
 .detail-counter-button{
     padding: 5px 25px;
     background-color: #A7D9E1;
