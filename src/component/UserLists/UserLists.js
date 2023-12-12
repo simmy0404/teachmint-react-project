@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react";
 import UserDetails from "../UserDetails/UserDetails";
-import "./UserLists.css";
 import { COUNTRY_API } from "../../constants";
 import logo from "../../icons/directory.svg";
+import "./UserLists.css";
+
 
 const UserLists = (props) => {
   const [userDetail, setUserDetail] = useState(null);
@@ -40,22 +41,24 @@ const UserLists = (props) => {
       ) : (
         <div className="userlists-wrapper">
           <header className="userlists-header">
-            <img src={logo}/>
+            <img src={logo} alt="logo" />
             <h1 className="userlists-heading">Directory</h1>
           </header>
-          {user?.map((val) => {
+          {user?.map((val, idx) => {
             let userPosts = posts?.filter((post) => {
               return val.id === post.userId;
             });
             return (
-              <div className="userlists-user"
+              <div
+                className="userlists-user"
                 onClick={() => {
                   openDetailsPopup(val, userPosts);
                 }}
+                key={idx}
               >
                 <div className="userlists-name">
                   <div className="userlists-name-head">Name : </div>
-                  <div  className="userlists-name-val">{val.name}</div>
+                  <div className="userlists-name-val">{val.name}</div>
                 </div>
                 <div className="userlists-post">
                   <div className="userlists-post-head">Posts : </div>
@@ -66,8 +69,6 @@ const UserLists = (props) => {
           })}
         </div>
       )}
-
-      {showModal && <div className="modal-wrapper"></div>}
     </div>
   );
 };

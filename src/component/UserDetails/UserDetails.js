@@ -3,7 +3,6 @@ import { COUNTRY_API } from "../../constants";
 import Postpopup from "../PostPopup/PostPopup";
 import "./UserDetails.css";
 
-
 const UserDetails = (props) => {
   const [selectedCountry, setSelectedCountry] = useState("");
   const [currentTime, setCurrentTime] = useState(new Date(0));
@@ -12,24 +11,25 @@ const UserDetails = (props) => {
   const [postData, setPostData] = useState(null);
   const [isPopupOpen, setIsPopupOpen] = useState(null);
 
-  useEffect(() => {
-    let timer;
-    async function fetchTime() {
-      if (selectedCountry && countryChanged) {
-        const res = await fetch(
-          `${COUNTRY_API}/${selectedCountry}`
-        );
-        const data = await res.json();
-        setCurrentTime(new Date(data.datetime));
-        setCountryChanged(false);
+  async function fetchTime() {
+    if (selectedCountry && countryChanged) {
+      const res = await fetch(
+        `${COUNTRY_API}/${selectedCountry}`
+      );
+      const data = await res.json();
+      setCurrentTime(new Date(data.datetime));
+      setCountryChanged(false);
+    } else {
+      if (countryChanged && selectedCountry === "") {
+        setCurrentTime(new Date(0));
       } else {
-        if (countryChanged && selectedCountry === "") {
-          setCurrentTime(new Date(0));
-        } else {
-          setCurrentTime((prevTime) => new Date(prevTime.getTime() + 1000));
-        }
+        setCurrentTime((prevTime) => new Date(prevTime.getTime() + 1000));
       }
     }
+  }
+
+  useEffect(() => {
+    let timer;
     fetchTime();
     if (!clockPaused) {
       timer = setInterval(fetchTime, 1000);
@@ -79,6 +79,7 @@ const UserDetails = (props) => {
     },
     countryData,
   } = props;
+
   return (
     <div>
       <header className="header">
@@ -89,11 +90,7 @@ const UserDetails = (props) => {
             <select className="detail-dropdown" onChange={handleCountryChange}>
               <option>Select Country</option>
               {countryData?.map((country, idx) => {
-                return (
-                  <option className="dropDownData" key={idx}>
-                    {country}
-                  </option>
-                );
+                return <option className="dropDownData" key={idx}>{country}</option>
               })}
             </select>
           <div className="detail-timecounter">{formatTime(currentTime)}</div>
@@ -119,9 +116,9 @@ const UserDetails = (props) => {
         </div>
       </div>
       <div className="detail-post-wrapper">
-        {post?.map((val) => {
+        {post?.map((val, idx) => {
           return (
-            <div className="detail-post" onClick={()=>{openPostPopup(val)}}>
+            <div className="detail-post" key={idx} onClick={()=>{openPostPopup(val)}}>
               <div className="detail-title">{val.title}</div>
               <div className="detail-post-body">{val.body}</div>
             </div>

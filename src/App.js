@@ -1,6 +1,6 @@
+import {useEffect, useState} from "react";
 import { POSTS_API, USER_API } from './constants.js';
 import UserLists from './component/UserLists/UserLists';
-import {useEffect, useState} from "react";
 import './App.css';
 
 
@@ -22,6 +22,7 @@ function App() {
   useEffect(()=>{
     fetchUserData();
     fetchPostsData();
+
   }, [])
 
   return (
