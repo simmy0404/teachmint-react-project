@@ -1,23 +1,32 @@
-import logo from './logo.svg';
+import { POSTS_API, USER_API } from './constants.js';
+import UserLists from './component/UserLists/UserLists';
+import {useEffect, useState} from "react";
 import './App.css';
 
+
 function App() {
+  const [userData, setUserData] = useState(null)
+  const [postsData, setPostsData] = useState(null)
+
+  async function fetchUserData(){
+    let response = await fetch(USER_API);
+    let userData = await response.json();
+    setUserData(userData);
+  }
+  async function fetchPostsData(){
+    let response = await fetch(POSTS_API);
+    let postsData = await response.json();
+    setPostsData(postsData);
+  }
+
+  useEffect(()=>{
+    fetchUserData();
+    fetchPostsData();
+  }, [])
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <UserLists user={userData} posts={postsData}/>
     </div>
   );
 }

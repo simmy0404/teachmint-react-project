@@ -1,0 +1,118 @@
+.detail-wrapper{
+}
+.detail-button{
+    padding: 5px 25px;
+    background-color: #A7D9E1;
+    border: none;
+    border-radius: 5px;
+    margin: 10px;
+    box-shadow: 0 0 10px 0 rgba(0,0,0,.15);
+}
+.detail-country{
+    display: flex;
+    position: absolute;
+    gap: 10px;
+    align-items: center;
+    right: 20px;
+    top: 0;
+    height: 40px;
+    width: 50vw;
+    margin-top: 20px;
+    padding: 5px 20px;
+    box-shadow: 0 0 10px 0 rgba(0,0,0,.15);
+}
+.detail-counter-button{
+    padding: 5px 25px;
+    background-color: #A7D9E1;
+    border: none;
+    border-radius: 5px;
+    margin: 10px;
+    /* box-shadow: 0 0 10px 0 rgba(0,0,0,.15); */
+}
+
+.detail-heading{
+    text-align: center;
+    padding: 10px;
+    font-size: 32px;
+    font-weight: bold;
+    margin-top: 40px;
+}
+.detail-user-container{
+    display: flex;
+    margin: 5px 10vw;
+    padding: 2vw;
+    padding-top: 30px;
+    justify-content: space-between;
+    border: 1px solid rgb(222, 219, 219);
+    box-shadow: 0 0 10px 0 rgba(0,0,0,.15);
+    border-radius: 10px;
+    background-image: linear-gradient(to right, rgba(67, 184, 200, 0.1) , rgba(0, 0, 0, 0.1));
+}
+.detail-user1{
+    font-size: 12px;
+    color: rgb(102, 100, 100);
+}
+.detail-user2{
+    font-size: 12px;
+    color: rgb(102, 100, 100);
+}
+
+.detail-name{
+    padding-bottom: 5px;
+}
+.detail-address{
+    padding-bottom: 5px;
+}
+.detail-username{
+    margin-right: 5px;
+}
+.detail-email{
+    margin-right: 5px;
+}
+
+.detail-post-wrapper{
+    display: grid;
+    grid-template-columns: auto auto auto;
+    gap: 25px;
+    margin: 40px;
+}
+.detail-post{
+    padding: 10px;
+    border: 1px solid rgb(217, 214, 214);
+    border-radius: 5px;
+    gap: 10px;
+}
+.detail-title{
+    font-size: 14px;
+    font-weight: bold;
+    margin-bottom: 5px;
+    text-align: center;
+}
+.detail-post-body{
+    font-size: 12px;
+    color: rgb(124, 122, 122);
+}
+
+@media (max-width: 767px){
+    .detail-country{
+        flex-direction: column;
+        height: 150px;
+        position: relative;
+        left: 15%;
+        width: 60vw;
+        border-radius: 5px;
+    }
+    .detail-dropdown{
+        margin-top: 20px;
+        height: 25px;
+    }
+    option{
+        overflow: scroll;
+        height: 300px;
+    }
+    .detail-post-wrapper{
+        grid-template-columns: auto;
+        margin: 20px;
+    }
+
+}

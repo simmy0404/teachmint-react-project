@@ -1,0 +1,42 @@
+.userlists-header{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.userlists-header img{
+    width: 30px;
+    height: 30px;
+}
+.userlists-heading{
+    text-align: center;
+    padding: 10px;
+    font-size: 32px;
+    font-weight: bold;
+}
+
+.userlists-user{
+    display: flex;
+    margin-right: 10vw;
+    margin-left: 10vw;
+    border: 1px solid rgb(161, 159, 159);
+    border-radius: 5px;
+    margin-bottom: 20px;
+    padding: 5px;
+    background-image: linear-gradient(to right, rgba(67, 184, 200, 0.5) , rgba(0, 0, 0, 0.3));
+    justify-content: space-between;
+    align-items: center;
+    height: 40px;
+}
+.userlists-name{
+    display: flex;
+    gap: 5px;
+    padding-left: 10px;
+    color: rgb(60, 59, 59);
+
+}
+.userlists-post{
+    display: flex;
+    gap: 5px;
+    padding-right: 10px;
+    color: rgb(60, 59, 59);
+}
