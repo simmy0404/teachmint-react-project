@@ -1,12 +1,17 @@
 import { useEffect, useState } from "react";
-import "./UserDetails.css";
 import { COUNTRY_API } from "../../constants";
+import Postpopup from "../PostPopup/PostPopup";
+import "./UserDetails.css";
+
 
 const UserDetails = (props) => {
   const [selectedCountry, setSelectedCountry] = useState("");
   const [currentTime, setCurrentTime] = useState(new Date(0));
   const [clockPaused, setClockPaused] = useState(false);
   const [countryChanged, setCountryChanged] = useState(false);
+  const [postData, setPostData] = useState(null);
+  const [isPopupOpen, setIsPopupOpen] = useState(null);
+
   useEffect(() => {
     let timer;
     async function fetchTime() {
@@ -38,12 +43,24 @@ const UserDetails = (props) => {
     setCountryChanged(true);
     setSelectedCountry(event.target.value);
   };
+
+  const openPostPopup = (postData) => {
+    setPostData(postData)
+    setIsPopupOpen(!isPopupOpen)
+  }
+
+  const closePostPopup = (postData) => {
+    setPostData(postData)
+    setIsPopupOpen(false)
+  }
+
   const formatTime = (date) => {
     const hours = date.getUTCHours().toString().padStart(2, "0");
     const minutes = date.getUTCMinutes().toString().padStart(2, "0");
     const seconds = date.getUTCSeconds().toString().padStart(2, "0");
     return `${hours} : ${minutes} : ${seconds}`;
   };
+
   const handlePausePlay = () => {
     setClockPaused(!clockPaused);
   };
@@ -104,13 +121,15 @@ const UserDetails = (props) => {
       <div className="detail-post-wrapper">
         {post?.map((val) => {
           return (
-            <div className="detail-post">
+            <div className="detail-post" onClick={()=>{openPostPopup(val)}}>
               <div className="detail-title">{val.title}</div>
               <div className="detail-post-body">{val.body}</div>
             </div>
           );
         })}
       </div>
+      {isPopupOpen && <Postpopup postData={postData} close={closePostPopup}/>}
+      {isPopupOpen && <div className="postpopup-wrapper"></div>}
     </div>
   );
 };

@@ -97,6 +97,18 @@
     color: rgb(124, 122, 122);
 }
 
+.postpopup-wrapper{
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    background-color: black;
+    opacity: 0.2;
+    z-index: 2;
+}
+
 @media (max-width: 767px){
     .detail-country{
         flex-direction: column;
