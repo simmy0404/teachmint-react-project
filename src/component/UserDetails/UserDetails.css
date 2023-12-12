@@ -6,6 +6,7 @@
     border-radius: 5px;
     margin: 10px;
     box-shadow: 0 0 10px 0 rgba(0,0,0,.15);
+    cursor: pointer;
 }
 .detail-country{
     display: flex;
@@ -20,12 +21,16 @@
     padding: 5px 20px;
     box-shadow: 0 0 10px 0 rgba(0,0,0,.15);
 }
+.detail-dropdown{
+    cursor: pointer;
+}
 .detail-counter-button{
     padding: 5px 25px;
     background-color: #A7D9E1;
     border: none;
     border-radius: 5px;
     margin: 10px;
+    cursor: pointer;
     /* box-shadow: 0 0 10px 0 rgba(0,0,0,.15); */
 }
 

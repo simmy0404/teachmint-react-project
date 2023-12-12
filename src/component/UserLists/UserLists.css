@@ -26,6 +26,7 @@
     justify-content: space-between;
     align-items: center;
     height: 40px;
+    cursor: pointer;
 }
 .userlists-name{
     display: flex;
